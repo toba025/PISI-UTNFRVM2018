@@ -1,0 +1,9 @@
+
+{% block content %}
+<form method="post">
+	{% csrf_token %}
+	<h3>¿Desea eliminar la consulta id: {{ object.id }}, del host de origen: {{object.iphost}}, con fecha: {{object.fecha}}, al ip de destino: {{object.objetivo}}?</h3>
+	<button class="btn btn-danger" type="submit">Sí, eliminar</button>
+	<a class= "btn btn-default" href="{% url 'consulta:consulta_listar' %}">Cancelar</a>
+</form>
+{% endblock %}

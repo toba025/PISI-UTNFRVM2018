@@ -1,0 +1,55 @@
+
+{% block content %}
+
+<table class="table table-bordered">
+	<thead>
+		<tr>
+            <td>Id </td>
+            <td>-</td>
+			<td>Objetivo</td>
+            <td> - </td>
+            <td>Mascara</td>
+            <td> - </td>
+            <td>Fecha</td>
+            <td> - </td>
+            <td>Hora</td>
+            <td> - </td>
+            <td>Ip Host</td>
+            <td> - </td>
+            <td>Estado</td>
+
+		</tr>
+		
+	</thead>
+	<tbody>
+		{% if object_list %}
+		{% for consulta in object_list %}
+		<tr>
+            <td>{{ consulta.id }}</td>
+            <td>    -    </td>
+			<td>{{ consulta.objetivo }}</td>
+            <td>    -    </td>
+            <td>{{ consulta.mascara}}</td>
+            <td>    -    </td>
+            <td>{{ consulta.fecha}}</td>
+            <td>    -    </td>
+            <td>{{ consulta.hora}}</td>
+            <td>    -    </td>
+            <td>{{ consulta.iphost}}</td>
+            <td>    -    </td>
+            <td>{{ consulta.estado}}</td>
+            <td>    -    </td>
+
+			<td>
+				<a class="btn btn-danger" href="{% url 'consulta:consulta_eliminar' consulta.id %}">Eliminar</a>
+			</td>
+		</tr>
+		{% endfor %}
+
+		{% else %}
+		<h1>No hay registros de consultas</h1>
+		{% endif %}
+	</tbody>
+</table> 
+
+{% endblock%}
